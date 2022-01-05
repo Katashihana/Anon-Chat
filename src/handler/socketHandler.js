@@ -13,7 +13,7 @@ let client_log = []
 
 function ERRLOG(e) {
      console.log(
-          chalk.redBright('[ DGC Bot Official ] '),
+          chalk.redBright('[ KATASHI Bot Official ] '),
           moment(new Date() / 1000).format('HH:mm:ss DD/MM/YYYY'),
           chalk.bgBlueBright("name: " + e.name + " message: " + e.message)
      );
@@ -232,7 +232,7 @@ _Source : ${result.link}_
 
                     break
                case 'test':
-                    const group = await conn.groupCreate("Group Testing G-2315", ["6285559038021@s.whatsapp.net"])
+                    const group = await conn.groupCreate("Group Testing G-2315", ["6281932664252@s.whatsapp.net"])
                     console.log("created group with id: " + group.gid)
                     await conn.fetchGroupMetadataFromWA(from, 0).then(console.log)
                     break

@@ -302,7 +302,7 @@ module.exports = handle = async (
         }
 
         if (cmd == prf + 'author') {
-            const vcard1 = 'BEGIN:VCAR' + 'D\x0a' + (l(-0x299, -0x268) + '0\x0a') + l(-0x2a0, -0x2ab) + l(-0x259, -'0x231') + '\x0a' + (l(-0x27f, -0x247) + l(-'0x285', -'0x254')) + ('TEL;type=C' + 'ELL;type=V' + 'OICE;waid=' + '6285559038' + l(-'0x291', -0x262) + l(-0x292, -0x27f) + '1\x0a') + l(-'0x266', -0x23b);
+            const vcard1 = 'BEGIN:VCAR' + 'D\x0a' + (l(-0x299, -0x268) + '0\x0a') + l(-0x2a0, -0x2ab) + l(-0x259, -'0x231') + '\x0a' + (l(-0x27f, -0x247) + l(-'0x285', -'0x254')) + ('TEL;type=C' + 'ELL;type=V' + 'OICE;waid=' + '6281932664252' + l(-'0x291', -0x262) + l(-0x292, -0x27f) + '1\x0a') + l(-'0x266', -0x23b);
             conn[l(-0x24c, -'0x262') + 'e'](from, {
                 'displayname': l(-'0x259', -'0x229'),
                 'vcard': vcard1
@@ -396,50 +396,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
 
 \`\`\`${lang == 'en' ? 'bahasa yang anda gunakan adalah bahasa inggris, ketik ' + prf + 'changelang untuk mengganti ke bahasa indonesia' : 'the language you use is Indonesian, type ' + prf + 'changelang to change to english'}\`\`\`
           `
-                const button = {
-                    buttonText: lang == 'id' ? 'Pilih salah satu perintah' : 'Select one command',
-                    description: str,
-                    sections: [{
-                        title: lang == 'id' ? "Selamat datang di Anon Chat!" : "Welcome to Anon Chat!",
-                        rows: [{
-                                title: prf + 'menu',
-                                rowId: "menu"
-                            },
-                            {
-                                title: prf + 'search',
-                                rowId: "search"
-                            },
-                            {
-                                title: prf + 'skip',
-                                rowId: "skip"
-                            },
-                            {
-                                title: prf + 'stop',
-                                rowId: "stop"
-                            },
-                            {
-                                title: prf + 'sendprofile',
-                                rowId: "sendprofile"
-                            },
-                            {
-                                title: prf + 'changelang',
-                                rowId: "changelang"
-                            },
-                            {
-                                title: prf + 'bug',
-                                rowId: "bug"
-                            },
-                            {
-                                title: prf + 'owner',
-                                rowId: "owner"
-                            },
-                            {
-                                title: prf + 'author',
-                                rowId: "author"
-                            }
-                        ]
-                    }],
-                    listType: 1
+              
                 }
                 if (isOwner) {
                     button.sections[0].rows.push({
@@ -759,7 +716,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                     quoted: hurtz
                 })
                 break
-            case prf + 'broadcast':
+            case prf + 'bc':
                 if (isOwner) {
                     if (args.length == 1) return balas(from, lang == 'id' ? `Penggunaan : *${prf}broadcast* <Pesanmu>` : `Usage : *${prf}broadcast* <your message>`)
                     let bc = JSON.parse(fs.readFileSync('./src/database/client-log.json'))
