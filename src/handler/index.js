@@ -389,13 +389,28 @@ module.exports = handle = async (
 ♻️ ${prf}changelang - _${lang == 'id' ? 'mengganti bahasa [EN & ID]' : 'change language [EN & ID]'}_
 ⚠️ ${prf}bug - _${lang == 'id' ? 'mengirim laporan ke pemilik bot' : 'send a report to the bot owner'}_
 🔮 ${prf}owner - _${lang == 'id' ? 'kirim kontak pemilik bot' : 'send the bot owner contact'}_
-👑 ${prf}author - _${lang == 'id' ? 'kirim kontak pembuat bot' : 'send the bot creator contact'}_
 ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcast ke semua kontak_` : `<your message> _Send broadcast to all contacts_`) : ''}
 
 ———————————————————————————
 
 \`\`\`${lang == 'en' ? 'bahasa yang anda gunakan adalah bahasa inggris, ketik ' + prf + 'changelang untuk mengganti ke bahasa indonesia' : 'the language you use is Indonesian, type ' + prf + 'changelang to change to english'}\`\`\`
           `
+          const buttonMessage = {
+                        contentText: strMatch,
+                        footerText: 'Follow my IG @k4t4sh1._',
+                        buttons: [
+                            {
+                                buttonId: prf + 'menu',
+                                buttonText: {
+                                    displayText: 'MENU🗒️'
+                                },
+                                type: 1
+                            }
+                        ],
+                        headerType: 1
+                    }
+                    conn.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
+                }
                 
                 conn.sendMessage(from, str, MessageType.listMessage)
                 break
@@ -407,7 +422,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                     // balas(from, strMatch)
                     const buttonMessage = {
                         contentText: strMatch,
-                        footerText: 'Follow my IG @hanif_az.sq.61',
+                        footerText: 'Follow my IG @k4t4sh1._',
                         buttons: [
                             {
                                 buttonId: prf + 'stop',
@@ -425,7 +440,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                     .then(() => {
                         const buttonMessage = {
                             contentText: lang == 'id' ? `\`\`\`Berhasil menemukan teman\`\`\` ✅\n\nketik :\n*${prf}stop* ( untuk berhenti chat )\n*${prf}skip* ( untuk melewati chat ini )` : `Successfully found friends ✅\n\ntype:\n*${prf}stop* (to stop chatting)\n*${prf}skip* (to skip this chat)`,
-                            footerText: 'Follow my IG @hanif_az.sq.61',
+                            footerText: 'Follow my IG @k4t4sh1._',
                             buttons: [{
                                     buttonId: prf + 'skip',
                                     buttonText: {
@@ -452,7 +467,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                             // balas(from, lang == 'id' ? `\`\`\`Kamu sudah memulai sesi chat!\`\`\` ❌ mohon tunggu sampai matchmaking selesai, atau ketik *${prf}stop*` : `You have started the chat session! ❌ please wait until the matchmaking is finished, or type *${prf}stop*`)
                             const buttonMessage = {
                                 contentText: lang == 'id' ? `\`\`\`Kamu sudah memulai sesi chat!\`\`\` ❌ mohon tunggu sampai matchmaking selesai, atau ketik *${prf}stop*` : `You have started the chat session! ❌ please wait until the matchmaking is finished, or type *${prf}stop*`,
-                                footerText: 'Follow my IG @hanif_az.sq.61',
+                                footerText: 'Follow my IG @k4t4sh1._',
                                 buttons: [{
                                     buttonId: prf + 'stop',
                                     buttonText: {
@@ -469,7 +484,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                             // balasNp(from, lang == 'id' ? `\`\`\`Tidak dapat menemukan teman\`\`\` ❌ mohon search ulang!` : `Cannot find friends ❌ please search again!`)
                             const buttonMessage = {
                                 contentText: lang == 'id' ? `\`\`\`Tidak dapat menemukan teman\`\`\` ❌ mohon search ulang!` : `Cannot find friends ❌ please search again!`,
-                                footerText: 'Follow my IG @hanif_az.sq.61',
+                                footerText: 'Follow my IG @k4t4sh1._',
                                 buttons: [{
                                     buttonId: prf + 'search',
                                     buttonText: {
@@ -501,7 +516,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                                 // balasNp(from, lang == 'id' ? `\`\`\`Berhasil menemukan teman\`\`\` ✅\n\nketik :\n*${prf}stop* ( untuk berhenti chat )\n*${prf}skip* ( untuk melewati chat ini )` : `Successfully found friends ✅\n\ntype:\n*${prf}stop* (to stop chatting)\n*${prf}skip* (to skip this chat)`)
                                 const buttonMessage = {
                                     contentText: lang == 'id' ? `\`\`\`Berhasil menemukan teman\`\`\` ✅\n\nketik :\n*${prf}stop* ( untuk berhenti chat )\n*${prf}skip* ( untuk melewati chat ini )` : `Successfully found friends ✅\n\ntype:\n*${prf}stop* (to stop chatting)\n*${prf}skip* (to skip this chat)`,
-                                    footerText: 'Follow my IG @hanif_az.sq.61',
+                                    footerText: 'Follow my IG @k4t4sh1._',
                                     buttons: [{
                                             buttonId: prf + 'skip',
                                             buttonText: {
@@ -528,7 +543,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                                     // balas(from, lang == 'id' ? `\`\`\`Kamu sudah memulai sesi chat!\`\`\` ❌ mohon tunggu sampai matchmaking selesai, atau ketik *${prf}stop*` : `You have started the chat session! ❌ please wait until the matchmaking is finished, or type *${prf}stop*`)
                                     const buttonMessage = {
                                         contentText: lang == 'id' ? `\`\`\`Kamu sudah memulai sesi chat!\`\`\` ❌ mohon tunggu sampai matchmaking selesai, atau ketik *${prf}stop*` : `You have started the chat session! ❌ please wait until the matchmaking is finished, or type *${prf}stop*`,
-                                        footerText: 'Follow my IG @hanif_az.sq.61',
+                                        footerText: 'Follow my IG @k4t4sh1._',
                                         buttons: [{
                                             buttonId: prf + 'stop',
                                             buttonText: {
@@ -545,7 +560,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                                     // balasNp(from, lang == 'id' ? `\`\`\`Tidak dapat menemukan teman\`\`\` ❌ mohon search ulang!` : `Cannot find friends ❌ please search again!`)
                                     const buttonMessage = {
                                         contentText: lang == 'id' ? `\`\`\`Tidak dapat menemukan teman\`\`\` ❌ mohon search ulang!` : `Cannot find friends ❌ please search again!`,
-                                        footerText: 'Follow my IG @hanif_az.sq.61',
+                                        footerText: 'Follow my IG @k4t4sh1._',
                                         buttons: [{
                                             buttonId: prf + 'search',
                                             buttonText: {
@@ -562,7 +577,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                     .catch((error) => {
                         const buttonMessage = {
                             contentText: lang == 'id' ? `\`\`\`Tidak dapat berhenti chat karena kamu belum pernah masuk sesi chat\`\`\` ❌\n\nKetik : ${prf}search` : `\`\`\`Cannot stop chat because you have never entered a chat session\`\`\` ❌\n\nType: ${prf}search`,
-                            footerText: 'Follow my IG @hanif_az.sq.61',
+                            footerText: 'Follow my IG @k4t4sh1._',
                             buttons: [{
                                 buttonId: prf + 'search',
                                 buttonText: {
@@ -588,7 +603,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                         console.log(error);
                         const buttonMessage = {
                             contentText: lang == 'id' ? `\`\`\`Tidak dapat berhenti chat karena kamu belum pernah masuk sesi chat\`\`\` ❌\n\nKetik : ${prf}search` : `\`\`\`Cannot stop chat because you have never entered a chat session\`\`\` ❌\n\nType: ${prf}search`,
-                            footerText: 'Follow my IG @hanif_az.sq.61',
+                            footerText: 'Follow my IG @k4t4sh1._',
                             buttons: [{
                                 buttonId: prf + 'search',
                                 buttonText: {
@@ -731,7 +746,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                             // balas(from, lang == 'id' ? `Kamu yakin akan mengirim broadcast gambar dengan pesan *${myMessage}*? ketik *Y/N*` : `Are you sure you want to send broadcast image with the message *${myMessage}*? type *Y/N*`)
                             const buttonMessage = {
                                 contentText: lang == 'id' ? `Kamu yakin akan mengirim broadcast gambar dengan pesan *${myMessage}*? ketik *Y/N*` : `Are you sure you want to send broadcast image with the message *${myMessage}*? type *Y/N*`,
-                                footerText: 'Follow my IG @hanif_az.sq.61',
+                                footerText: 'Follow my IG @k4t4sh1._',
                                 buttons: [{
                                     buttonId: 'Y',
                                     buttonText: {
@@ -760,7 +775,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                             // balas(from, lang == 'id' ? `Kamu yakin akan mengirim broadcast dengan pesan *${myMessage}*? ketik *Y/N*` : `Are you sure you want to send broadcast with the message *${myMessage}*? type *Y/N*`)
                             const buttonMessage = {
                                 contentText: lang == 'id' ? `Kamu yakin akan mengirim broadcast dengan pesan *${myMessage}*? ketik *Y/N*` : `Are you sure you want to send broadcast with the message *${myMessage}*? type *Y/N*`,
-                                footerText: 'Follow my IG @hanif_az.sq.61',
+                                footerText: 'Follow my IG @k4t4sh1._',
                                 buttons: [{
                                     buttonId: 'Y',
                                     buttonText: {
