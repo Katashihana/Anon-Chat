@@ -379,7 +379,7 @@ module.exports = handle = async (
         switch (cmd) {
             case prf + 'help':
             case prf + 'menu':
-                let str = `${lang == 'id' ? `Halo ${pushname}👋, berikut perintah anonymous chat bot` : `Hi ${pushname}👋, following the anonymous chat bot command`}
+                 str = `${lang == 'id' ? `Halo ${pushname}👋, berikut perintah anonymous chat bot` : `Hi ${pushname}👋, following the anonymous chat bot command`}
                     
 🗒️ ${prf}menu - _${lang == 'id' ? 'melihat perintah yang tersedia' : 'see the available commands'}_
 🔎 ${prf}search - _${lang == 'id' ? 'mencari teman bicara' : 'looking for someone to talk to'}_
@@ -396,15 +396,8 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
 
 \`\`\`${lang == 'en' ? 'bahasa yang anda gunakan adalah bahasa inggris, ketik ' + prf + 'changelang untuk mengganti ke bahasa indonesia' : 'the language you use is Indonesian, type ' + prf + 'changelang to change to english'}\`\`\`
           `
-              
-                }
-                if (isOwner) {
-                    button.sections[0].rows.push({
-                        title: prf + 'broadcast',
-                        rowId: "broadcast"
-                    })
-                }
-                conn.sendMessage(from, button, MessageType.listMessage)
+                
+                conn.sendMessage(from, str, MessageType.listMessage)
                 break
             case 'SEARCH 🔎':
             case prf + 'start':
@@ -716,7 +709,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                     quoted: hurtz
                 })
                 break
-            case prf + 'bc':
+            case prf + 'broadcast':
                 if (isOwner) {
                     if (args.length == 1) return balas(from, lang == 'id' ? `Penggunaan : *${prf}broadcast* <Pesanmu>` : `Usage : *${prf}broadcast* <your message>`)
                     let bc = JSON.parse(fs.readFileSync('./src/database/client-log.json'))
