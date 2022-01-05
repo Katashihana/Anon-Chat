@@ -379,7 +379,7 @@ module.exports = handle = async (
         switch (cmd) {
             case prf + 'help':
             case prf + 'menu':
-                 str = `${lang == 'id' ? `Halo ${pushname}👋, berikut perintah anonymous chat bot` : `Hi ${pushname}👋, following the anonymous chat bot command`}
+                let str = `${lang == 'id' ? `Halo ${pushname}👋, berikut perintah anonymous chat bot` : `Hi ${pushname}👋, following the anonymous chat bot command`}
                     
 🗒️ ${prf}menu - _${lang == 'id' ? 'melihat perintah yang tersedia' : 'see the available commands'}_
 🔎 ${prf}search - _${lang == 'id' ? 'mencari teman bicara' : 'looking for someone to talk to'}_
@@ -389,30 +389,65 @@ module.exports = handle = async (
 ♻️ ${prf}changelang - _${lang == 'id' ? 'mengganti bahasa [EN & ID]' : 'change language [EN & ID]'}_
 ⚠️ ${prf}bug - _${lang == 'id' ? 'mengirim laporan ke pemilik bot' : 'send a report to the bot owner'}_
 🔮 ${prf}owner - _${lang == 'id' ? 'kirim kontak pemilik bot' : 'send the bot owner contact'}_
+👑 ${prf}author - _${lang == 'id' ? 'kirim kontak pembuat bot' : 'send the bot creator contact'}_
 ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcast ke semua kontak_` : `<your message> _Send broadcast to all contacts_`) : ''}
 
 ———————————————————————————
 
 \`\`\`${lang == 'en' ? 'bahasa yang anda gunakan adalah bahasa inggris, ketik ' + prf + 'changelang untuk mengganti ke bahasa indonesia' : 'the language you use is Indonesian, type ' + prf + 'changelang to change to english'}\`\`\`
           `
-          const buttonMessage = {
-                        contentText: strMatch,
-                        footerText: 'Follow my IG @k4t4sh1._',
-                        buttons: [
+                const button = {
+                    buttonText: lang == 'id' ? 'Pilih salah satu perintah' : 'Select one command',
+                    description: str,
+                    sections: [{
+                        title: lang == 'id' ? "Selamat datang di Anon Chat!" : "Welcome to Anon Chat!",
+                        rows: [{
+                                title: prf + 'menu',
+                                rowId: "menu"
+                            },
                             {
-                                buttonId: prf + 'menu',
-                                buttonText: {
-                                    displayText: 'MENU🗒️'
-                                },
-                                type: 1
+                                title: prf + 'search',
+                                rowId: "search"
+                            },
+                            {
+                                title: prf + 'skip',
+                                rowId: "skip"
+                            },
+                            {
+                                title: prf + 'stop',
+                                rowId: "stop"
+                            },
+                            {
+                                title: prf + 'sendprofile',
+                                rowId: "sendprofile"
+                            },
+                            {
+                                title: prf + 'changelang',
+                                rowId: "changelang"
+                            },
+                            {
+                                title: prf + 'bug',
+                                rowId: "bug"
+                            },
+                            {
+                                title: prf + 'owner',
+                                rowId: "owner"
+                            },
+                            {
+                                title: prf + 'author',
+                                rowId: "author"
                             }
-                        ],
-                        headerType: 1
-                    }
-                    conn.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
+                        ]
+                    }],
+                    listType: 1
                 }
-                
-                conn.sendMessage(from, str, MessageType.listMessage)
+                if (isOwner) {
+                    button.sections[0].rows.push({
+                        title: prf + 'broadcast',
+                        rowId: "broadcast"
+                    })
+                }
+                conn.sendMessage(from, button, MessageType.listMessage)
                 break
             case 'SEARCH 🔎':
             case prf + 'start':
